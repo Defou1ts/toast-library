@@ -1,1 +1,2 @@
-export * from './ToastContainer/toastContainer.component';
+export * from './ErrorBoundary/errorboundary.component';
+export * from './ToastContainer/toastcontainer.component';

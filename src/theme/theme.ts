@@ -15,7 +15,7 @@ export const borderRadius = [24, 50] as const;
 export const width = [32, 64, 668] as const;
 export const height = [32, 64, 181] as const;
 export const padding = [27, 29, 32] as const;
-export const fontSize = [32, 38] as const;
+export const fontSize = [32] as const;
 
 export const shadow = [`4px 4px 8px ${colors.lightGray}`] as const;
 
