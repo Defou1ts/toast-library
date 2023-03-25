@@ -56,6 +56,7 @@ export default [
 		input: './dist/dts/index.d.ts',
 		output: [{ file: 'dist/index.d.ts', format: 'es' }],
 		plugins: [
+			resolve(),
 			dts(),
 			alias({
 				entries: [
@@ -66,9 +67,9 @@ export default [
 					{ find: '@constants', replacement: './constants' },
 					{ find: '@utils', replacement: './utils' },
 					{ find: '@hooks', replacement: './hooks' },
+					{ find: '@theme', replacement: './theme' },
 					{ find: '@interfaces', replacement: './interfaces' },
 					{ find: '@stories', replacement: './stories' },
-					{ find: '@theme', replacement: './theme' },
 				],
 			}),
 		],
