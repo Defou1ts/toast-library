@@ -1,4 +1,4 @@
-import type { Theme } from '@interfaces';
+import type { Theme } from '../interfaces';
 export declare const colors: {
     readonly white: "#FFFFFF";
     readonly purple: "#9A40D3";

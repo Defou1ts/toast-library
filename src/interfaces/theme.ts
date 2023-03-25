@@ -1,4 +1,4 @@
-import type { colors, borderRadius, width, height, padding, fontSize, shadow } from '@theme';
+import type { colors, borderRadius, width, height, padding, fontSize, shadow } from '../theme';
 
 export interface Theme {
 	colors: typeof colors;

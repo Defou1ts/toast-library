@@ -1,4 +1,4 @@
-import type { Theme } from '@interfaces';
+import type { Theme } from '../interfaces';
 
 export const colors = {
 	white: '#FFFFFF',
