@@ -4,8 +4,8 @@ import { storiesOf } from '@storybook/react';
 
 import { ToastContainer } from '@components';
 
-const stories = storiesOf('App test', module);
+const stories = storiesOf('Toast library', module);
 
-stories.add('Toasts', (): JSX.Element => {
+stories.add('Toast container', (): JSX.Element => {
 	return <ToastContainer />;
 });
