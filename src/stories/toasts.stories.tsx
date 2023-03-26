@@ -16,5 +16,4 @@ export const ToastStory = Template.bind({});
 
 ToastStory.args = {
 	type: TOAST_TYPE.SUCCESS,
-	children: '',
 };
