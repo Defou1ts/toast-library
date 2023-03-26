@@ -12,11 +12,10 @@ export const ToastPortal = ({ children }: ToastPortalProps): ReactPortal => {
 		toastRoot.id = 'toastRoot';
 		document.body.appendChild(toastRoot);
 
-
 		return () => {
-			toastRoot.removeChild(toastRoot);
+			toastRoot.remove();
 		};
-	});
+	}, []);
 
 	return createPortal(children, toastRoot);
 };

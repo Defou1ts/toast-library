@@ -18,7 +18,6 @@ export const Toast = ({ type, message, title }: ToastProps): JSX.Element | null 
 	if (!isOpened) {
 		return null;
 	}
-
 	return (
 		<ToastWrapper {...props} color={color}>
 			<CloseButton color={color} onClose={handleClose} />
