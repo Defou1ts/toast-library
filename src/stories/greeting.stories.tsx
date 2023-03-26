@@ -6,6 +6,6 @@ import { ToastContainer } from '@components';
 
 const stories = storiesOf('App test', module);
 
-stories.add('App', (): JSX.Element => {
+stories.add('Toasts', (): JSX.Element => {
 	return <ToastContainer />;
 });
