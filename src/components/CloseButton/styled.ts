@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import type { StyledCloseButtonProps } from './interfaces';
+import type { StyledCloseButtonProps } from './types';
 
 export const StyledCloseButton = styled.button<StyledCloseButtonProps>`
 	background: transparent;
