@@ -14,7 +14,9 @@ export const ToastContainer = (): JSX.Element => {
 			<GlobalStyles />
 			<ErrorBoundary>
 				<ToastContainerWrapper>
-					<Toast type={TOAST_TYPE.SUCCESS}>Произошло успешное подключение к базе! Теперь вы можете создавать новые модели! Удачи!</Toast>
+					<Toast type={TOAST_TYPE.SUCCESS}>
+						Произошло успешное подключение к базе! Теперь вы можете создавать новые модели! Удачи!
+					</Toast>
 					<Toast type={TOAST_TYPE.ERROR} />
 					<Toast type={TOAST_TYPE.WARNING} />
 					<Toast type={TOAST_TYPE.INFO} />
