@@ -9,14 +9,17 @@ import { TOAST_TYPE } from '@constants';
 const stories = storiesOf('Toast library', module);
 
 stories.add('Toast container', (): JSX.Element => {
+	const toastService = ToastService.getInstance();
+
 	const notifyInfo = (): void => {
-		ToastService.getInstance().addNotification({
+		toastService.addNotification({
 			type: TOAST_TYPE.INFO,
+			margin: 50,
 		});
 	};
 
 	const notifySuccess = (): void => {
-		ToastService.getInstance().addNotification({
+		toastService.addNotification({
 			type: TOAST_TYPE.SUCCESS,
 		});
 	};

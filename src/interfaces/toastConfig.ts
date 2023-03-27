@@ -7,6 +7,5 @@ export interface ToastConfig {
 	title?: string;
 	message?: string;
 	margin?: number;
-	backgroundColor?: string;
 	animation?: 'fade' | 'slide';
 }

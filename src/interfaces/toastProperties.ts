@@ -1,9 +1,9 @@
-import type { TOAST_TITLE } from '@constants';
+import type { FunctionComponent } from 'react';
+
 import type { colors } from '@theme';
 
 export interface ToastProperties {
-	icon: JSX.Element;
+	Icon: FunctionComponent<React.SVGAttributes<SVGElement>>;
 	backgroundColor: (typeof colors)[keyof typeof colors];
 	color: (typeof colors)[keyof typeof colors];
-	title: TOAST_TITLE;
 }

@@ -1,5 +1,6 @@
-import { TOAST_TYPE } from '@constants';
 import type { ToastConfig } from '@interfaces';
+
+import { TOAST_TYPE } from '../constants/toastType';
 
 export const defaultConfig: ToastConfig = {
 	type: TOAST_TYPE.INFO,
@@ -8,6 +9,5 @@ export const defaultConfig: ToastConfig = {
 	title: 'Toast Title',
 	message: '',
 	margin: 10,
-	backgroundColor: '',
 	animation: 'slide',
 };
