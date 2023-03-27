@@ -15,5 +15,7 @@ const Template: ComponentStory<typeof Toast> = (args) => <Toast {...args} />;
 export const ToastStory = Template.bind({});
 
 ToastStory.args = {
-	type: TOAST_TYPE.SUCCESS,
+	config: {
+		type: TOAST_TYPE.INFO,
+	},
 };

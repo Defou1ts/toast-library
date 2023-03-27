@@ -1,7 +1,6 @@
-import type { TOAST_TYPE } from '@constants';
+import type { ToastConfig } from '@interfaces';
 
 export interface ToastProps {
-	type: TOAST_TYPE;
-	title?: string;
-	message?: string;
+	id: string;
+	config: ToastConfig;
 }

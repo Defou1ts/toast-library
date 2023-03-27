@@ -7,15 +7,18 @@ import type { ToastPortalProps } from './interfaces';
 
 export const ToastPortal = ({ children }: ToastPortalProps): ReactPortal => {
 	const toastRoot = document.createElement('div');
+	const element = document.createElement('div');
 
 	useLayoutEffect(() => {
 		toastRoot.id = 'toastRoot';
 		document.body.appendChild(toastRoot);
 
-		return () => {
-			toastRoot.remove();
-		};
-	}, []);
+		toastRoot.appendChild(element);
 
-	return createPortal(children, toastRoot);
+		return () => {
+			toastRoot.removeChild(element);
+		};
+	});
+
+	return createPortal(children, element);
 };
