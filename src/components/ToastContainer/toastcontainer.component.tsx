@@ -3,7 +3,6 @@ import { ThemeProvider } from 'styled-components';
 import { ErrorBoundary, Toast, ToastPortal } from '@components';
 import { GlobalStyles, theme } from '@theme';
 import { useToastService } from '@hooks';
-import { TOAST_TYPE } from '@constants';
 
 import { ToastContainerWrapper } from './styled';
 
@@ -17,7 +16,7 @@ export const ToastContainer = (): JSX.Element => {
 				<ToastPortal>
 					<ToastContainerWrapper>
 						{toasts.map(({ id, config }) => (
-							<Toast config={config} key={id} id={id} type={TOAST_TYPE.INFO} />
+							<Toast config={config} key={id} id={id} />
 						))}
 					</ToastContainerWrapper>
 				</ToastPortal>

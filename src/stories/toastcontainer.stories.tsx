@@ -14,7 +14,9 @@ stories.add('Toast container', (): JSX.Element => {
 	const notifyInfo = (): void => {
 		toastService.addNotification({
 			type: TOAST_TYPE.INFO,
-			margin: 50,
+			margin: 20,
+			duration: 5000,
+			message: 'Create new gooondes! UIUIUIUi',
 		});
 	};
 

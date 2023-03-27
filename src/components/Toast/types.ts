@@ -1,3 +1,5 @@
-import type { ToastProperties } from '@interfaces';
+import type { ToastPosition, ToastProperties } from '@interfaces';
 
-export type ToastWrapperProps = Pick<ToastProperties, 'backgroundColor' | 'color'>;
+export type ToastWrapperProps = Pick<ToastProperties, 'backgroundColor' | 'color'> & {
+	position: ToastPosition;
+};
