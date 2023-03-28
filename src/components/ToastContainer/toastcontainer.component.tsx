@@ -12,6 +12,10 @@ import type { ToastContainerProps } from './interfaces';
 export const ToastContainer = ({ position, ...toastContainerConfig }: ToastContainerProps): JSX.Element => {
 	const [toasts] = useToastService(toastContainerConfig);
 
+	const handleRemoveNotification = (id: string) => (): void => {
+		ToastService.getInstance().removeNotification(id);
+	};
+
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyles />
@@ -19,7 +23,12 @@ export const ToastContainer = ({ position, ...toastContainerConfig }: ToastConta
 				<ToastPortal>
 					<ToastContainerWrapper position={getPosition(position)}>
 						{toasts.slice(0, 3).map(({ id, toastConfig }) => (
-							<Toast config={{ ...ToastService.getInstance().config, ...toastConfig }} key={id} id={id} />
+							<Toast
+								remove={handleRemoveNotification(id)}
+								config={{ ...ToastService.getInstance().config, ...toastConfig }}
+								key={id}
+								id={id}
+							/>
 						))}
 					</ToastContainerWrapper>
 				</ToastPortal>

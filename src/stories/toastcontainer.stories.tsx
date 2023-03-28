@@ -21,7 +21,7 @@ stories.add('Toast container', (): JSX.Element => {
 	const notifySuccess = (): void => {
 		toastService.addNotification({
 			type: TOAST_TYPE.SUCCESS,
-			duration: 5000,
+			duration: 50000,
 			message: 'Create new gooondes! UIUIUIUi',
 		});
 	};
@@ -30,7 +30,10 @@ stories.add('Toast container', (): JSX.Element => {
 		<>
 			<ToastContainer position="top-right" duration={1000} />
 			<button onClick={notifyInfo}>add Info toast</button> <br />
-			<button onClick={notifySuccess}>add Success toast</button>
+			<button onClick={notifySuccess}>add Success toast</button> <br />
+			<button onClick={notifySuccess}>add Success toast</button> <br />
+			<button onClick={notifySuccess}>add Success toast</button> <br />
+			<button onClick={notifySuccess}>add Success toast</button> <br />
 		</>
 	);
 });
