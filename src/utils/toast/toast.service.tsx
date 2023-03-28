@@ -1,10 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import type { ToastConfig } from '@interfaces';
+import { TOAST_TYPE } from '@constants';
 
 export interface ToastNotification {
 	id: string;
-	config: ToastConfig;
+	toastConfig: ToastConfig;
 }
 
 export type Subscriber = () => void;
@@ -13,6 +14,20 @@ export class ToastService {
 	private static instance: ToastService;
 	private _toasts: ToastNotification[] = [];
 	private subscribers: Subscriber[] = [];
+	private _config: ToastConfig = {
+		type: TOAST_TYPE.INFO,
+		duration: 5000,
+		title: 'Toast Title',
+		animation: 'slide',
+	};
+
+	public get config(): ToastConfig {
+		return this._config;
+	}
+
+	public set config(config: ToastConfig) {
+		this._config = { ...this._config, ...config };
+	}
 
 	private constructor() {}
 
@@ -25,7 +40,7 @@ export class ToastService {
 
 	public addNotification(config: ToastConfig): string {
 		const id = uuidv4();
-		this._toasts.push({ id, config });
+		this._toasts.push({ id, toastConfig: config });
 		this.notifySubscribers();
 		return id;
 	}

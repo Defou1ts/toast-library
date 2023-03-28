@@ -13,9 +13,7 @@ stories.add('Toast container', (): JSX.Element => {
 
 	const notifyInfo = (): void => {
 		toastService.addNotification({
-			type: TOAST_TYPE.INFO,
-			margin: 20,
-			duration: 5000,
+			type: TOAST_TYPE.ERROR,
 			message: 'Create new gooondes! UIUIUIUi',
 		});
 	};
@@ -23,13 +21,15 @@ stories.add('Toast container', (): JSX.Element => {
 	const notifySuccess = (): void => {
 		toastService.addNotification({
 			type: TOAST_TYPE.SUCCESS,
+			duration: 5000,
+			message: 'Create new gooondes! UIUIUIUi',
 		});
 	};
 
 	return (
 		<>
-			<ToastContainer />
-			<button onClick={notifyInfo}>add Info toast</button>
+			<ToastContainer position="top-right" duration={1000} />
+			<button onClick={notifyInfo}>add Info toast</button> <br />
 			<button onClick={notifySuccess}>add Success toast</button>
 		</>
 	);

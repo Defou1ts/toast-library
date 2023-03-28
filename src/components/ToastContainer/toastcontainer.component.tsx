@@ -3,20 +3,23 @@ import { ThemeProvider } from 'styled-components';
 import { ErrorBoundary, Toast, ToastPortal } from '@components';
 import { GlobalStyles, theme } from '@theme';
 import { useToastService } from '@hooks';
+import { getPosition, ToastService } from '@utils';
 
 import { ToastContainerWrapper } from './styled';
 
-export const ToastContainer = (): JSX.Element => {
-	const [toasts] = useToastService();
+import type { ToastContainerProps } from './interfaces';
+
+export const ToastContainer = ({ position, ...toastContainerConfig }: ToastContainerProps): JSX.Element => {
+	const [toasts] = useToastService(toastContainerConfig);
 
 	return (
 		<ThemeProvider theme={theme}>
 			<GlobalStyles />
 			<ErrorBoundary>
 				<ToastPortal>
-					<ToastContainerWrapper>
-						{toasts.map(({ id, config }) => (
-							<Toast config={config} key={id} id={id} />
+					<ToastContainerWrapper position={getPosition(position)}>
+						{toasts.slice(0, 3).map(({ id, toastConfig }) => (
+							<Toast config={{ ...ToastService.getInstance().config, ...toastConfig }} key={id} id={id} />
 						))}
 					</ToastContainerWrapper>
 				</ToastPortal>

@@ -13,13 +13,6 @@ export const ToastWrapper = styled.div<ToastWrapperProps>`
 	border-radius: ${({ theme }) => theme.borderRadius[0]}px;
 	box-shadow: ${({ theme }) => theme.shadow[0]};
 
-	position: absolute;
-	top: ${({ position }) => position.top}px;
-	left: ${({ position }) => position.left}px;
-	right: ${({ position }) => position.right}px;
-	bottom: ${({ position }) => position.bottom}px;
-
-	width: 100%;
 
 	@media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		padding: ${({ theme }) => theme.padding[4]}px;

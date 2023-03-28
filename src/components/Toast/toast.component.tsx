@@ -1,25 +1,17 @@
 import { useEffect } from 'react';
 
-import { TOASTS, TOAST_TYPE } from '@constants';
+import { TOASTS } from '@constants';
 import { CloseButton } from '@components';
-import { getPosition, ToastService } from '@utils';
+import { ToastService } from '@utils';
 
 import { ToastContentWrapper, ToastText, ToastTitle, ToastWrapper } from './styled';
 
 import type { ToastProps } from './interfaces';
 
 export const Toast = ({ id, config }: ToastProps): JSX.Element => {
-	const {
-		type = TOAST_TYPE.INFO,
-		position = 'top-left',
-		duration = 5000,
-		title = 'Toast Title',
-		message,
-		margin,
-		animation = 'slide',
-	} = config;
+	const { type, duration, title, message, animation = 'slide' } = config;
 
-	const { Icon, color, ...props } = TOASTS[type];
+	const { Icon, color, ...props } = TOASTS[type ?? 'success'];
 
 	const handleRemoveNotification = (): void => {
 		ToastService.getInstance().removeNotification(id);
@@ -34,7 +26,7 @@ export const Toast = ({ id, config }: ToastProps): JSX.Element => {
 	}, []);
 
 	return (
-		<ToastWrapper {...props} color={color} position={getPosition(position ?? 'top-left', margin)}>
+		<ToastWrapper {...props} color={color}>
 			<CloseButton color={color} onClose={handleClose} />
 			<ToastContentWrapper>
 				<Icon />
