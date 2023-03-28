@@ -18,6 +18,6 @@ ToastStory.args = {
 	config: {
 		type: TOAST_TYPE.INFO,
 		title: 'Exmaple Title',
-		message: 'Hello, it is your toast-library example! It is smth greatest! '
+		message: 'Hello, it is your toast-library example! It is smth greatest! ',
 	},
 };

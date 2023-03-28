@@ -13,6 +13,7 @@ export const ToastContainer = ({ position, ...toastContainerConfig }: ToastConta
 	const [toasts] = useToastService(toastContainerConfig);
 
 	const handleRemoveNotification = (id: string) => (): void => {
+		console.log('remove');
 		ToastService.getInstance().removeNotification(id);
 	};
 
@@ -27,7 +28,6 @@ export const ToastContainer = ({ position, ...toastContainerConfig }: ToastConta
 								remove={handleRemoveNotification(id)}
 								config={{ ...ToastService.getInstance().config, ...toastConfig }}
 								key={id}
-								id={id}
 							/>
 						))}
 					</ToastContainerWrapper>

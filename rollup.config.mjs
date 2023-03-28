@@ -56,8 +56,6 @@ export default [
 		input: './dist/dts/index.d.ts',
 		output: [{ file: 'dist/index.d.ts', format: 'es' }],
 		plugins: [
-			resolve(),
-			dts(),
 			alias({
 				entries: [
 					{ find: '@/*', replacement: './*' },
@@ -72,6 +70,8 @@ export default [
 					{ find: '@stories', replacement: './stories' },
 				],
 			}),
+			dts(),
+			resolve(),
 		],
 	},
 ];

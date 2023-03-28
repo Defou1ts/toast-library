@@ -5,18 +5,20 @@ module.exports = {
 	stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
 	addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
 	framework: '@storybook/react',
-	// staticDirs: [
-	// 	{ from: '@/*', to: './src/*' },
-	// 	{ from: '@assets', to: './src/assets' },
-	// 	{ from: '@types', to: './src/types' },
-	// 	{ from: '@components', to: '/src/components' },
-	// 	{ from: '@constants', to: './src/constants' },
-	// 	{ from: '@utils', to: './src/utils' },
-	// 	{ from: '@hooks', to: './src/hooks' },
-	// 	{ from: '@interfaces', to: './src/interfaces' },
-	// 	{ from: '@stories', to: './src/stories' },
-	// 	{ from: '@theme', to: './src/theme' },
-	// ],
+	typescript: {
+		check: false,
+		checkOptions: {},
+		reactDocgen: 'react-docgen-typescript',
+		reactDocgenTypescriptOptions: {
+			shouldExtractLiteralValuesFromEnum: true,
+			shouldExtractValuesFromUnion: true,
+			skipChildrenPropWithoutDoc: false,
+			shouldRemoveUndefinedFromOptional: false,
+			savePropValueAsString: false,
+			propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+		},
+	},
+
 	webpackFinal: async (config, { configType }) => {
 		const fileLoaderRule = config.module.rules.find((rule) => rule.test.test('.svg'));
 		fileLoaderRule.exclude = /\.inline.svg$/;

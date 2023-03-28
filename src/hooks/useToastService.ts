@@ -11,8 +11,8 @@ export const useToastService = (config: ToastConfig): [ToastNotification[]] => {
 
 	toastService.config = config;
 
-	const handleToastServiceUpdate = (): void => {
-		setToasts([...toastService.toasts]);
+	const handleToastServiceUpdate = (toasts: ToastNotification[]): void => {
+		setToasts([...toasts]);
 	};
 
 	useEffect(() => {
