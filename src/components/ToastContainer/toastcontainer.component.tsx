@@ -25,6 +25,7 @@ export const ToastContainer = ({ position, ...toastContainerConfig }: ToastConta
 					<ToastContainerWrapper position={getPosition(position)}>
 						{toasts.slice(0, 3).map(({ id, toastConfig }) => (
 							<Toast
+								position={position}
 								remove={handleRemoveNotification(id)}
 								config={{ ...ToastService.getInstance().config, ...toastConfig }}
 								key={id}

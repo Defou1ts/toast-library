@@ -6,7 +6,7 @@ export const ToastContainerWrapper = styled.div<ToastContainerWrapperProps>`
 	display: grid;
 	grid-template-rows: 1fr 1fr 1fr;
 	grid-auto-rows: 0;
-	overflow-y: hidden;
+	overflow: hidden;
 	gap: 20px 0px;
 	font-family: 'Helvetica Neue', sans-serif;
 	max-width: ${({ theme }) => theme.width[2]}px;

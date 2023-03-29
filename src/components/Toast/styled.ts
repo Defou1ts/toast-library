@@ -13,10 +13,36 @@ export const ToastWrapper = styled.div<ToastWrapperProps>`
 	border-radius: ${({ theme }) => theme.borderRadius[0]}px;
 	box-shadow: ${({ theme }) => theme.shadow[0]};
 
+	position: relative;
+	animation: ${({ animationType }) => animationType} 0.3s ease-in-out;
 
 	@media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		padding: ${({ theme }) => theme.padding[4]}px;
 		padding-bottom: ${({ theme }) => theme.padding[3]}px;
+	}
+
+	@keyframes slide {
+		from {
+			top: ${({ animation }) => animation.top}px;
+			left: ${({ animation }) => animation.left}px;
+			right: ${({ animation }) => animation.right}px;
+			bottom: ${({ animation }) => animation.bottom}px;
+		}
+		to {
+			top: ${({ position }) => position.top}px;
+			left: ${({ position }) => position.left}px;
+			right: ${({ position }) => position.right}px;
+			bottom: ${({ position }) => position.bottom}px;
+		}
+	}
+
+	@keyframes fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 `;
 

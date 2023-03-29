@@ -40,7 +40,7 @@ stories.add('Toast container', (): JSX.Element => {
 
 	return (
 		<>
-			<ToastContainer position="top-right" duration={1000} />
+			<ToastContainer position="top-right" animation="fade" duration={8000} />
 			<button onClick={notifyInfo}>add Info toast</button> <br />
 			<button onClick={notifySuccess}>add Success toast</button> <br />
 			<button onClick={notifyError}>add Error toast</button> <br />
