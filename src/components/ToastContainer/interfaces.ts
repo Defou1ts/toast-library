@@ -1,6 +1,5 @@
 import type { ToastConfig, ToastPosition } from '@interfaces';
-
-import type { PositionType } from './types';
+import type { PositionType } from '@types';
 
 export interface ToastContainerProps extends ToastConfig {
 	position: PositionType;

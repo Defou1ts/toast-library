@@ -10,11 +10,10 @@ import { ToastContainerWrapper } from './styled';
 import type { ToastContainerProps } from './interfaces';
 
 export const ToastContainer = ({ position, ...toastContainerConfig }: ToastContainerProps): JSX.Element => {
-	const [toasts] = useToastService(toastContainerConfig);
+	const [toasts, removeToast] = useToastService(toastContainerConfig);
 
-	const handleRemoveNotification = (id: string) => (): void => {
-		console.log('remove');
-		ToastService.getInstance().removeNotification(id);
+	const handleRemoveToast = (id: string) => (): void => {
+		removeToast(id);
 	};
 
 	return (
@@ -26,7 +25,7 @@ export const ToastContainer = ({ position, ...toastContainerConfig }: ToastConta
 						{toasts.slice(0, 3).map(({ id, toastConfig }) => (
 							<Toast
 								position={position}
-								remove={handleRemoveNotification(id)}
+								remove={handleRemoveToast(id)}
 								config={{ ...ToastService.getInstance().config, ...toastConfig }}
 								key={id}
 							/>
