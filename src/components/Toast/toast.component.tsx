@@ -9,7 +9,7 @@ import type { ToastProps } from './interfaces';
 export const Toast = ({ config, remove, position }: ToastProps): JSX.Element => {
 	const { type, title, message, animation = 'slide' } = config;
 
-	const { Icon, color, ...props } = TOASTS[type ?? 'success'];
+	const { Icon, color, ...props } = TOASTS[type];
 
 	return (
 		<ToastWrapper

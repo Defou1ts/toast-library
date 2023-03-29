@@ -14,14 +14,15 @@ export class ToastService {
 	private static instance: ToastService;
 	private _toasts: ToastNotification[] = [];
 	private subscribers: Subscriber[] = [];
-	private _config: ToastConfig = {
+	private _config: Required<ToastConfig> = {
 		type: TOAST_TYPE.INFO,
 		duration: 5000,
 		title: 'Toast Title',
 		animation: 'slide',
+		message: '',
 	};
 
-	public get config(): ToastConfig {
+	public get config(): Required<ToastConfig> {
 		return this._config;
 	}
 
