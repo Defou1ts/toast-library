@@ -1,18 +1,33 @@
 import { v4 as uuidv4 } from 'uuid';
 
+import { TOAST_TYPE } from '@constants';
 import type { ToastConfig } from '@interfaces';
 
 export interface ToastNotification {
 	id: string;
-	config: ToastConfig;
+	toastConfig: ToastConfig;
 }
 
-export type Subscriber = () => void;
+export type Subscriber = (toasts: ToastNotification[]) => void;
 
 export class ToastService {
 	private static instance: ToastService;
 	private _toasts: ToastNotification[] = [];
 	private subscribers: Subscriber[] = [];
+	private _config: ToastConfig = {
+		type: TOAST_TYPE.INFO,
+		duration: 5000,
+		title: 'Toast Title',
+		animation: 'slide',
+	};
+
+	public get config(): ToastConfig {
+		return this._config;
+	}
+
+	public set config(config: ToastConfig) {
+		this._config = { ...this._config, ...config };
+	}
 
 	private constructor() {}
 
@@ -25,9 +40,20 @@ export class ToastService {
 
 	public addNotification(config: ToastConfig): string {
 		const id = uuidv4();
-		this._toasts.push({ id, config });
+		this._toasts.push({ id, toastConfig: config });
+
+		if (this._config.duration !== undefined) {
+			void this.removeNotificationAfterDuration(id, config.duration ?? this._config.duration);
+		}
+
 		this.notifySubscribers();
 		return id;
+	}
+
+	private async removeNotificationAfterDuration(id: string, duration: number): Promise<void> {
+		setTimeout(() => {
+			this.removeNotification(id);
+		}, duration);
 	}
 
 	public removeNotification(id: string): void {
@@ -45,7 +71,7 @@ export class ToastService {
 
 	private notifySubscribers(): void {
 		this.subscribers.forEach((subscriber) => {
-			subscriber();
+			subscriber(this._toasts);
 		});
 	}
 

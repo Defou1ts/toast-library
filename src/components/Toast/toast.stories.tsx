@@ -15,7 +15,10 @@ const Template: ComponentStory<typeof Toast> = (args) => <Toast {...args} />;
 export const ToastStory = Template.bind({});
 
 ToastStory.args = {
+	position:'top-left',
 	config: {
 		type: TOAST_TYPE.INFO,
+		title: 'Exmaple Title',
+		message: 'Hello, it is your toast-library example! It is smth greatest! ',
 	},
 };

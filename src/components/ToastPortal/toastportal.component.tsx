@@ -5,20 +5,23 @@ import { createPortal } from 'react-dom';
 
 import type { ToastPortalProps } from './interfaces';
 
-export const ToastPortal = ({ children }: ToastPortalProps): ReactPortal => {
+export const ToastPortal = ({ children }: ToastPortalProps): ReactPortal | null => {
 	const toastRoot = document.createElement('div');
-	const element = document.createElement('div');
 
 	useLayoutEffect(() => {
 		toastRoot.id = 'toastRoot';
 		document.body.appendChild(toastRoot);
 
-		toastRoot.appendChild(element);
-
 		return () => {
-			toastRoot.removeChild(element);
+			document.body.removeChild(toastRoot);
 		};
-	});
+	}, []);
 
-	return createPortal(children, element);
+	const toastRootElement = document.getElementById('toastRoot');
+
+	if (toastRootElement !== null) {
+		return createPortal(children, toastRootElement);
+	}
+
+	return null;
 };
