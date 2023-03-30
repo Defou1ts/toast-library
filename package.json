@@ -2,7 +2,9 @@
 	"name": "toast-library",
 	"version": "1.0.0",
 	"description": "notification library for react applications",
-	"main": "index.js",
+	"main": "dist/index.js",
+	"module": "dist/index.es.js",
+	"types": "dist/index.d.ts",
 	"license": "MIT",
 	"dependencies": {
 		"@svgr/webpack": "^5.5.0",
@@ -74,6 +76,6 @@
 		"lint": "eslint --fix src",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook",
-		"build-lib": "tsc --outDir dist/dts --declarationDir dist/dts --declaration true && rollup -c"
+		"build-lib": "rollup -c"
 	}
 }

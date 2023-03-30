@@ -15,7 +15,7 @@ export class ToastService {
 	private _toasts: ToastNotification[] = [];
 	private subscribers: Subscriber[] = [];
 	private _config: Required<ToastConfig> = {
-		type: TOAST_TYPE.INFO,
+		toastType: TOAST_TYPE.INFO,
 		duration: 5000,
 		title: 'Toast Title',
 		animation: 'slide',

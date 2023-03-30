@@ -11,7 +11,7 @@ const stories = storiesOf('Toast library', module);
 stories.add('Toast container', (): JSX.Element => {
 	const notifyInfo = (): void => {
 		toast({
-			type: TOAST_TYPE.INFO,
+			toastType: TOAST_TYPE.INFO,
 			duration: 500,
 			message: 'Create new gooondes! UIUIUIUi',
 		});
@@ -19,21 +19,21 @@ stories.add('Toast container', (): JSX.Element => {
 
 	const notifySuccess = (): void => {
 		toast({
-			type: TOAST_TYPE.SUCCESS,
+			toastType: TOAST_TYPE.SUCCESS,
 			message: 'Create new gooondes! UIUIUIUi',
 		});
 	};
 
 	const notifyError = (): void => {
 		toast({
-			type: TOAST_TYPE.ERROR,
+			toastType: TOAST_TYPE.ERROR,
 			message: 'Create new gooondes! UIUIUIUi',
 		});
 	};
 
 	const notifyWarning = (): void => {
 		toast({
-			type: TOAST_TYPE.WARNING,
+			toastType: TOAST_TYPE.WARNING,
 			message: 'Create new gooondes! UIUIUIUi',
 		});
 	};

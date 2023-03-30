@@ -1,4 +1,5 @@
-import type { PositionType, ToastPosition } from '@interfaces';
+import type { ToastPosition } from '@interfaces';
+import type { PositionType } from '@types';
 
 export const getPosition = (position: PositionType, margin?: number): ToastPosition => {
 	switch (position) {
