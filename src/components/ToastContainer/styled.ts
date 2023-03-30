@@ -4,7 +4,7 @@ import type { ToastContainerWrapperProps } from './interfaces';
 
 export const ToastContainerWrapper = styled.div<ToastContainerWrapperProps>`
 	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-rows: auto auto auto;
 	grid-auto-rows: 0;
 	overflow: hidden;
 	gap: 20px 0px;
