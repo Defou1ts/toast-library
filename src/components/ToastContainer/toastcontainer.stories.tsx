@@ -12,10 +12,15 @@ const ToastContainerMeta: ComponentMeta<typeof ToastContainer> = {
 export default ToastContainerMeta;
 
 export const ToastContainerStory: ComponentStory<typeof ToastContainer> = (args) => {
+	const { title, message, toastType, animation, duration } = args;
+
 	const handleToast = (): void => {
 		toast({
-			title: 'Example title',
-			message: 'Example message',
+			title,
+			message,
+			toastType,
+			animation,
+			duration,
 		});
 	};
 

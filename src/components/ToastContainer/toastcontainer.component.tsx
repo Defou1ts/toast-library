@@ -9,7 +9,7 @@ import { ToastContainerWrapper } from './styled';
 
 import type { ToastContainerProps } from './interfaces';
 
-export const ToastContainer = ({ position, ...toastContainerConfig }: ToastContainerProps): JSX.Element => {
+export const ToastContainer = ({ position, ...toastContainerConfig }: ToastContainerProps): JSX.Element | null => {
 	const [toasts, removeToast] = useToastService(toastContainerConfig);
 
 	const handleRemoveToast = (id: string) => (): void => {
@@ -21,16 +21,18 @@ export const ToastContainer = ({ position, ...toastContainerConfig }: ToastConta
 			<GlobalStyles />
 			<ErrorBoundary>
 				<ToastPortal>
-					<ToastContainerWrapper position={getPosition(position)}>
-						{toasts.slice(0, 3).map(({ id, toastConfig }) => (
-							<Toast
-								position={position}
-								remove={handleRemoveToast(id)}
-								config={{ ...ToastService.getInstance().config, ...toastConfig }}
-								key={id}
-							/>
-						))}
-					</ToastContainerWrapper>
+					{toasts.length > 0 && (
+						<ToastContainerWrapper position={getPosition(position)}>
+							{toasts.slice(0, 3).map(({ id, toastConfig }) => (
+								<Toast
+									position={position}
+									remove={handleRemoveToast(id)}
+									config={{ ...ToastService.getInstance().config, ...toastConfig }}
+									key={id}
+								/>
+							))}
+						</ToastContainerWrapper>
+					)}
 				</ToastPortal>
 			</ErrorBoundary>
 		</ThemeProvider>
