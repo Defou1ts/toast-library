@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { ToastService } from '@utils';
-import type { ToastNotification } from '@utils';
-import type { ToastConfig } from '@interfaces';
+import type { ToastNotification, ToastConfig } from '@interfaces';
 
 export const useToastService = (config: ToastConfig): [ToastNotification[], typeof removeToast] => {
 	const [toasts, setToasts] = useState<ToastNotification[]>([]);

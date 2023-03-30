@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import type { ToastWrapperProps } from './types';
+import type { ToastWrapperProps } from './interfaces';
 
 export const ToastWrapper = styled.div<ToastWrapperProps>`
 	color: ${({ color }) => color};

@@ -1,14 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 
 import { TOASTS, TOAST_TYPE } from '@constants';
-import type { ToastConfig } from '@interfaces';
-
-export interface ToastNotification {
-	id: string;
-	toastConfig: ToastConfig;
-}
-
-export type Subscriber = (toasts: ToastNotification[]) => void;
+import type { ToastConfig, ToastNotification } from '@interfaces';
+import type { Subscriber } from '@types';
 
 export class ToastService {
 	private static instance: ToastService;
@@ -21,7 +15,7 @@ export class ToastService {
 		animation: 'slide',
 		message: '',
 		backgroundColor: TOASTS[TOAST_TYPE.INFO].backgroundColor,
-		textColor: TOASTS[TOAST_TYPE.INFO].color,
+		textColor: TOASTS[TOAST_TYPE.INFO].textColor,
 	};
 
 	public get config(): Required<ToastConfig> {

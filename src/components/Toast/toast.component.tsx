@@ -8,7 +8,11 @@ import type { ToastProps } from './interfaces';
 
 export const Toast = ({ config, remove, position }: ToastProps): JSX.Element => {
 	const { toastType, title, message, backgroundColor, textColor: color, animation = 'slide' } = config;
-	const { Icon, color: defaultColor, backgroundColor: defaultBackgroundColor } = TOASTS[toastType ?? TOAST_TYPE.INFO];
+	const {
+		Icon,
+		textColor: defaultColor,
+		backgroundColor: defaultBackgroundColor,
+	} = TOASTS[toastType ?? TOAST_TYPE.INFO];
 
 	return (
 		<ToastWrapper
