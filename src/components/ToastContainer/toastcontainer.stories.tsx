@@ -12,10 +12,17 @@ const ToastContainerMeta: ComponentMeta<typeof ToastContainer> = {
 export default ToastContainerMeta;
 
 export const ToastContainerStory: ComponentStory<typeof ToastContainer> = (args) => {
+	const { title, message, toastType, animation, duration, backgroundColor, textColor } = args;
+
 	const handleToast = (): void => {
 		toast({
-			title: 'Example title',
-			message: 'Example message',
+			title,
+			message,
+			toastType,
+			animation,
+			duration,
+			backgroundColor,
+			textColor,
 		});
 	};
 
@@ -34,6 +41,7 @@ ToastContainerStory.args = {
 	message: 'Example message',
 	duration: 5000,
 	animation: 'slide',
+	margins: 0,
 };
 
 ToastContainerStory.argTypes = {
@@ -48,5 +56,15 @@ ToastContainerStory.argTypes = {
 	animation: {
 		options: ['fade', 'slide'],
 		control: 'select',
+	},
+	backgroundColor: {
+		name: 'Background color',
+		options: ['red', 'green', 'blue', 'yellow', 'purple', 'black'],
+		controle: 'select',
+	},
+	textColor: {
+		name: 'Text color',
+		options: ['black', 'white'],
+		control: 'radio',
 	},
 };

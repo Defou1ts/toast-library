@@ -7,23 +7,23 @@ import { TOAST_TYPE } from './toastType';
 export const SUCCESS_TOAST: ToastProperties = {
 	Icon: SuccessIcon,
 	backgroundColor: colors.green,
-	color: colors.white,
+	textColor: colors.white,
 };
 
 export const ERROR_TOAST: ToastProperties = {
 	Icon: ErrorIcon,
 	backgroundColor: colors.red,
-	color: colors.white,
+	textColor: colors.white,
 };
 export const INFO_TOAST: ToastProperties = {
 	Icon: InformationIcon,
 	backgroundColor: colors.purple,
-	color: colors.white,
+	textColor: colors.white,
 };
 export const WARNING_TOAST: ToastProperties = {
 	Icon: WarningIcon,
 	backgroundColor: colors.yellow,
-	color: colors.black,
+	textColor: colors.black,
 };
 
 export const TOASTS = {

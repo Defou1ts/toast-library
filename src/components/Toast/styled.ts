@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import type { ToastWrapperProps } from './types';
+import type { ToastWrapperProps } from './interfaces';
 
 export const ToastWrapper = styled.div<ToastWrapperProps>`
 	color: ${({ color }) => color};
@@ -19,6 +19,10 @@ export const ToastWrapper = styled.div<ToastWrapperProps>`
 	@media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		padding: ${({ theme }) => theme.padding[4]}px;
 		padding-bottom: ${({ theme }) => theme.padding[3]}px;
+	}
+
+	@media screen and (max-width: ${({ theme }) => theme.breakpoints.xs}px) {
+		max-width: ${({ theme }) => theme.width[5]}vw;
 	}
 
 	@keyframes slide {
@@ -53,8 +57,7 @@ export const ToastContentWrapper = styled.div`
 	grid-template-rows: auto auto;
 	grid-template-areas:
 		'icon title'
-		'. text';
-	align-items: center;
+		'icon text';
 
 	& svg {
 		width: ${({ theme }) => theme.width[1]}px;
@@ -73,7 +76,6 @@ export const ToastContentWrapper = styled.div`
 `;
 
 export const ToastTitle = styled.p`
-	margin-top: ${({ theme }) => theme.margins[0]}px;
 	font-size: ${({ theme }) => theme.fontSize[1]}px;
 	grid-area: title;
 

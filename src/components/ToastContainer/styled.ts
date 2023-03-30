@@ -6,12 +6,13 @@ export const ToastContainerWrapper = styled.div<ToastContainerWrapperProps>`
 	display: grid;
 	grid-template-rows: auto auto auto;
 	grid-auto-rows: 0;
-	overflow: hidden;
-	gap: 20px 0px;
+	row-gap: ${({ theme }) => theme.gaps[2]}px;
 	font-family: 'Helvetica Neue', sans-serif;
 	max-width: ${({ theme }) => theme.width[2]}px;
 
-	width: 100%;
+	width: ${({ theme }) => theme.width[6]}%;
+
+	margin: ${({ margins }) => margins}px;
 
 	position: fixed;
 	top: ${({ position }) => position.top}px;
