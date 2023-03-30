@@ -1,4 +1,4 @@
-import { TOASTS } from '@constants';
+import { TOASTS, TOAST_TYPE } from '@constants';
 import { CloseButton } from '@components';
 import { getAnimationParams, getPosition } from '@utils';
 
@@ -8,7 +8,7 @@ import type { ToastProps } from './interfaces';
 
 export const Toast = ({ config, remove, position }: ToastProps): JSX.Element => {
 	const { toastType, title, message, backgroundColor, textColor: color, animation = 'slide' } = config;
-	const { Icon, color: defaultColor, backgroundColor: defaultBackgroundColor } = TOASTS[toastType];
+	const { Icon, color: defaultColor, backgroundColor: defaultBackgroundColor } = TOASTS[toastType ?? TOAST_TYPE.INFO];
 
 	return (
 		<ToastWrapper

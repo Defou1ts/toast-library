@@ -35,7 +35,6 @@ Info.args = {
 		message:
 			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
 		animation: 'fade',
-		duration: 5000,
 	},
 };
 
@@ -62,7 +61,6 @@ Success.args = {
 		message:
 			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
 		animation: 'fade',
-		duration: 5000,
 	},
 };
 
@@ -89,7 +87,6 @@ Error.args = {
 		message:
 			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
 		animation: 'fade',
-		duration: 5000,
 	},
 };
 
@@ -116,6 +113,5 @@ Warning.args = {
 		message:
 			'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,',
 		animation: 'fade',
-		duration: 5000,
 	},
 };
