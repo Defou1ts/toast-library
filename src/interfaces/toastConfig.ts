@@ -7,4 +7,6 @@ export interface ToastConfig {
 	title?: string;
 	message?: string;
 	animation?: AnimationType;
+	backgroundColor?: string;
+	textColor?: string;
 }

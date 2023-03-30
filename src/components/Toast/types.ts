@@ -1,8 +1,10 @@
-import type { ToastPosition, ToastProperties } from '@interfaces';
+import type { ToastPosition } from '@interfaces';
 import type { AnimationType } from '@types';
 
-export type ToastWrapperProps = Pick<ToastProperties, 'backgroundColor' | 'color'> & {
+export interface ToastWrapperProps {
 	position: ToastPosition;
 	animation: ToastPosition;
 	animationType: AnimationType;
-};
+	backgroundColor: string;
+	color: string;
+}
