@@ -39,6 +39,7 @@ ToastContainerStory.args = {
 	message: 'Example message',
 	duration: 5000,
 	animation: 'slide',
+	margins: 0,
 };
 
 ToastContainerStory.argTypes = {

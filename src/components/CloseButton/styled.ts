@@ -8,8 +8,8 @@ export const StyledCloseButton = styled.button<StyledCloseButtonProps>`
 	float: right;
 
 	& svg {
-		width: 32px;
-		height: 32px;
+		width: ${({ theme }) => theme.width[0]}px;
+		height: ${({ theme }) => theme.width[0]}px;
 		fill: ${({ color }) => color};
 	}
 
