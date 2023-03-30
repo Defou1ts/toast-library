@@ -1,5 +1,5 @@
 {
-	"name": "toast-library",
+	"name": "react-toasting",
 	"version": "1.0.0",
 	"description": "notification library for react applications",
 	"main": "dist/index.js",
