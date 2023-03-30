@@ -12,7 +12,7 @@ const ToastContainerMeta: ComponentMeta<typeof ToastContainer> = {
 export default ToastContainerMeta;
 
 export const ToastContainerStory: ComponentStory<typeof ToastContainer> = (args) => {
-	const { title, message, toastType, animation, duration, backgroundColor } = args;
+	const { title, message, toastType, animation, duration, backgroundColor, textColor } = args;
 
 	const handleToast = (): void => {
 		toast({
@@ -22,6 +22,7 @@ export const ToastContainerStory: ComponentStory<typeof ToastContainer> = (args)
 			animation,
 			duration,
 			backgroundColor,
+			textColor,
 		});
 	};
 

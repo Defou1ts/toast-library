@@ -9,7 +9,11 @@ import { ToastContainerWrapper } from './styled';
 
 import type { ToastContainerProps } from './interfaces';
 
-export const ToastContainer = ({ position, margins, ...toastContainerConfig }: ToastContainerProps): JSX.Element | null => {
+export const ToastContainer = ({
+	position,
+	margins,
+	...toastContainerConfig
+}: ToastContainerProps): JSX.Element | null => {
 	const [toasts, removeToast] = useToastService(toastContainerConfig);
 
 	const handleRemoveToast = (id: string) => (): void => {
