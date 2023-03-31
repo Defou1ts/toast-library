@@ -3,17 +3,14 @@ import { ThemeProvider } from 'styled-components';
 import { ErrorBoundary, Toast, ToastPortal } from '@components';
 import { GlobalStyles, theme } from '@theme';
 import { useToastService } from '@hooks';
-import { getPosition, ToastService } from '@utils';
+import { getPosition } from '@utils';
+import { defaultToastConfig } from '@constants';
 
 import { ToastContainerWrapper } from './styled';
 
 import type { ToastContainerProps } from './interfaces';
 
-export const ToastContainer = ({
-	position,
-	margins,
-	...toastContainerConfig
-}: ToastContainerProps): JSX.Element | null => {
+export const ToastContainer = ({ position, margins, ...toastContainerConfig }: ToastContainerProps): JSX.Element => {
 	const [toasts, removeToast] = useToastService(toastContainerConfig);
 
 	const handleRemoveToast = (id: string) => (): void => {
@@ -31,7 +28,11 @@ export const ToastContainer = ({
 								<Toast
 									position={position}
 									remove={handleRemoveToast(id)}
-									config={{ ...ToastService.getInstance().config, ...toastConfig }}
+									config={{
+										...defaultToastConfig,
+										...toastContainerConfig,
+										...toastConfig,
+									}}
 									key={id}
 								/>
 							))}

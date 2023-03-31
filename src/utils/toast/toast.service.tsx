@@ -1,32 +1,28 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { TOASTS, TOAST_TYPE } from '@constants';
 import type { ToastConfig, ToastNotification } from '@interfaces';
 import type { Subscriber } from '@types';
+import { defaultToastConfig } from '@constants';
 
 export class ToastService {
 	private static instance: ToastService;
 	private _toasts: ToastNotification[] = [];
 	private subscribers: Subscriber[] = [];
-	private _config: Required<ToastConfig> = {
-		toastType: TOAST_TYPE.INFO,
-		duration: 5000,
-		title: 'Toast Title',
-		animation: 'slide',
-		message: '',
-		backgroundColor: TOASTS[TOAST_TYPE.INFO].backgroundColor,
-		textColor: TOASTS[TOAST_TYPE.INFO].textColor,
-	};
+	private _config: Required<ToastConfig> = defaultToastConfig;
 
-	public get config(): Required<ToastConfig> {
+	private constructor() {}
+
+	public get toasts(): ToastNotification[] {
+		return this._toasts;
+	}
+
+	public get config(): ToastConfig {
 		return this._config;
 	}
 
 	public set config(config: ToastConfig) {
 		this._config = { ...this._config, ...config };
 	}
-
-	private constructor() {}
 
 	public static getInstance(): ToastService {
 		if (ToastService.instance === undefined) {
@@ -70,9 +66,5 @@ export class ToastService {
 		this.subscribers.forEach((subscriber) => {
 			subscriber(this._toasts);
 		});
-	}
-
-	public get toasts(): ToastNotification[] {
-		return this._toasts;
 	}
 }

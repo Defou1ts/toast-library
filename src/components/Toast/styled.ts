@@ -78,6 +78,9 @@ export const ToastContentWrapper = styled.div`
 export const ToastTitle = styled.p`
 	font-size: ${({ theme }) => theme.fontSize[1]}px;
 	grid-area: title;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 
 	@media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		font-size: ${({ theme }) => theme.fontSize[0]}px;
@@ -87,6 +90,10 @@ export const ToastTitle = styled.p`
 export const ToastText = styled.p`
 	font-size: ${({ theme }) => theme.fontSize[0]}px;
 	grid-area: text;
+
+	max-width: 120ch;
+	overflow: hidden;
+	text-overflow: ellipsis;
 
 	@media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		font-size: ${({ theme }) => theme.fontSize[2]}px;
