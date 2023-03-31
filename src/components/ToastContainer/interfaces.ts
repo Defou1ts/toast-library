@@ -1,10 +1,4 @@
-import type { ToastConfig, ToastPosition } from '@interfaces';
-import type { PositionType } from '@types';
-
-export interface ToastContainerProps extends ToastConfig {
-	position: PositionType;
-	margins: number;
-}
+import type { ToastPosition } from '@interfaces';
 
 export interface ToastContainerWrapperProps {
 	position: ToastPosition;

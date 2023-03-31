@@ -7,7 +7,7 @@ export const useToastService = (config: ToastConfig): [ToastNotification[], type
 	const [toasts, setToasts] = useState<ToastNotification[]>([]);
 
 	const toastService = ToastService.getInstance();
-	toastService.config = { ...toastService.config, ...config };
+	toastService.config = config;
 
 	useEffect(() => {
 		toastService.subscribe(handleToastServiceUpdate);
