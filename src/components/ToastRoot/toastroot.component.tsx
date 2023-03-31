@@ -1,14 +1,21 @@
+import { useEffect } from 'react';
+
 import { Toast } from 'components/Toast/toast.component';
 import { ToastContainerWrapper } from 'components/ToastContainer/styled';
 import { ToastPortal } from 'components/ToastPortal/toastportal.component';
 
 import { getPosition } from '@utils';
-import { useToastService } from '@hooks';
+import { useToastService, useToastServiceInstance } from '@hooks';
 import { defaultToastConfig } from '@constants';
 import type { ToastContainerProps } from '@interfaces';
 
 export const ToastRoot = ({ position, margins, ...toastContainerConfig }: ToastContainerProps): JSX.Element => {
-	const [toasts, removeToast] = useToastService(toastContainerConfig);
+	const [toasts, removeToast] = useToastService();
+	const toastService = useToastServiceInstance();
+
+	useEffect(() => {
+		toastService.config = toastContainerConfig;
+	}, [toastContainerConfig]);
 
 	const handleRemoveToast = (id: string) => (): void => {
 		removeToast(id);
