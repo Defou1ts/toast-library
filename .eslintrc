@@ -12,9 +12,11 @@
 	},
 	"plugins": ["react", "@typescript-eslint", "simple-import-sort"],
 	"rules": {
+		"import/consistent-type-specifier-style": ["error", "prefer-top-level"],
 		"simple-import-sort/exports": "error",
 		"no-unmodified-loop-condition": "off",
 		"@typescript-eslint/triple-slash-reference": "off",
+		"react/react-in-jsx-scope": "off",
 		"import/order": [
 			"error",
 			{

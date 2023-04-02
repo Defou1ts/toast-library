@@ -12,12 +12,19 @@ export const colors = {
 } as const;
 
 export const borderRadius = [24, 50] as const;
-export const width = [32, 64, 668] as const;
-export const height = [32, 64, 181] as const;
-export const padding = [27, 29, 32] as const;
-export const fontSize = [32, 38] as const;
+export const width = [24, 48, 500, 16, 32, 95, 100] as const;
+export const height = [32, 64, 181, 16, 48] as const;
+export const padding = [27, 29, 32, 58, 24] as const;
+export const fontSize = [20, 28, 12] as const;
+export const gaps = [30, 10, 20] as const;
+export const margins = [15] as const;
 
 export const shadow = [`4px 4px 8px ${colors.lightGray}`] as const;
+
+export const breakpoints = {
+	sm: 800,
+	xs: 550,
+} as const;
 
 export const theme: Theme = {
 	colors,
@@ -27,4 +34,7 @@ export const theme: Theme = {
 	padding,
 	fontSize,
 	shadow,
+	gaps,
+	margins,
+	breakpoints,
 };

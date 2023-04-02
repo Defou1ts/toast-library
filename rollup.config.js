@@ -10,7 +10,7 @@ import dts from 'rollup-plugin-dts';
 
 export default [
 	{
-		external: ['styled-components'],
+		external: ['styled-components', 'react', 'react-dom'],
 		input: './src/index.ts',
 		output: [
 			{
@@ -41,7 +41,7 @@ export default [
 					{ find: '@/*', replacement: './src/*' },
 					{ find: '@assets', replacement: './src/assets' },
 					{ find: '@types', replacement: './src/types' },
-					{ find: '@components', replacement: '/src/components' },
+					{ find: '@components', replacement: './src/components' },
 					{ find: '@constants', replacement: './src/constants' },
 					{ find: '@utils', replacement: './src/utils' },
 					{ find: '@hooks', replacement: './src/hooks' },
@@ -53,23 +53,33 @@ export default [
 		],
 	},
 	{
-		input: './dist/dts/index.d.ts',
-		output: [{ file: 'dist/index.d.ts', format: 'es' }],
+		external: ['styled-components', 'react', 'react-dom'],
+		input: './src/index.ts',
+		output: [
+			{
+				file: 'dist/index.d.ts',
+				format: 'cjs',
+			},
+		],
 		plugins: [
 			resolve(),
+			external(),
+			typescript({
+				clean: true,
+			}),
 			dts(),
 			alias({
 				entries: [
-					{ find: '@/*', replacement: './*' },
-					{ find: '@assets', replacement: './assets' },
-					{ find: '@types', replacement: './types' },
-					{ find: '@components', replacement: './components' },
-					{ find: '@constants', replacement: './constants' },
-					{ find: '@utils', replacement: './utils' },
-					{ find: '@hooks', replacement: './hooks' },
-					{ find: '@theme', replacement: './theme' },
-					{ find: '@interfaces', replacement: './interfaces' },
-					{ find: '@stories', replacement: './stories' },
+					{ find: '@/*', replacement: './src/*' },
+					{ find: '@assets', replacement: './src/assets' },
+					{ find: '@types', replacement: './src/types' },
+					{ find: '@components', replacement: './src/components' },
+					{ find: '@constants', replacement: './src/constants' },
+					{ find: '@utils', replacement: './src/utils' },
+					{ find: '@hooks', replacement: './src/hooks' },
+					{ find: '@interfaces', replacement: './src/interfaces' },
+					{ find: '@stories', replacement: './src/stories' },
+					{ find: '@theme', replacement: './src/theme' },
 				],
 			}),
 		],
