@@ -1,0 +1,24 @@
+name: Cypress tests
+on:
+    pull_request:
+        branches:
+            - '*'
+jobs:
+    test:
+        runs-on: ubuntu-22.04
+        steps:
+            - uses: actions/checkout@v3
+            - name: Install NodeJS
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 14
+                  cache: 'yarn'
+            - name: Install dependecies
+              run: yarn
+
+            - name: Start server in the background
+              run: yarn storybook &
+
+            # Cypress has its own package.json in folder "e2e"
+            - name: Install Cypress and run tests
+              uses: cypress-io/github-action@v5
