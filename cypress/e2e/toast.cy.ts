@@ -1,15 +1,42 @@
 /// <reference types="cypress" />
 
-describe('Login Form', () => {
-	it('Should contain valid login information', () => {
-		cy.visit('/iframe.html?id=components-login-form--example');
-		cy.get('#login-form').within(() => {
-			cy.log('**enter the email**');
-			cy.get('#email').should('have.value', 'email@provider.com');
-			cy.log('**enter password**');
-			cy.get('#password').should('have.value', 'a-random-password');
-		});
-	});
+import chaiColors from 'chai-colors';
+
+import {
+	checkAnimation,
+	checkCustomBackgroundColor,
+	checkCustomMargins,
+	checkCustomTextColor,
+	checkErrorToast,
+	checkInfoToast,
+	checkManyToasts,
+	checkSuccessToast,
+	checkToastContainerMessage,
+	checkToastContainerTitle,
+	checkToastContainerWrapperPositions,
+	checkToastDurations,
+	checkToastTypeChanging,
+	checkWarningToast,
+} from '../support/toast';
+
+chai.use(chaiColors);
+
+describe('Check toasts', () => {
+	checkInfoToast();
+	checkWarningToast();
+	checkSuccessToast();
+	checkErrorToast();
 });
 
-export {};
+describe('Check Toast Container', () => {
+	checkToastContainerWrapperPositions();
+	checkToastContainerMessage();
+	checkToastContainerTitle();
+	checkToastTypeChanging();
+	checkToastDurations();
+	checkAnimation();
+	checkCustomMargins();
+	checkManyToasts();
+	checkCustomBackgroundColor();
+	checkCustomTextColor();
+});

@@ -1,6 +1,6 @@
 import { defineConfig } from 'cypress';
 
-import { APP_HOST, APP_PORT } from './src/constants';
+import { APP_HOST, APP_PORT } from './src/constants/environment';
 
 export default defineConfig({
 	e2e: {
@@ -14,8 +14,6 @@ export default defineConfig({
 			reportFilename: 'report',
 			overwrite: true,
 		},
-		setupNodeEvents(on, config) {
-			// implement node event listeners here
-		},
+		setupNodeEvents(on, config) {},
 	},
 });

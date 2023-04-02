@@ -28,7 +28,9 @@ export const ToastContainerStory: ComponentStory<typeof ToastContainer> = (args)
 
 	return (
 		<>
-			<button onClick={handleToast}>Toast</button>
+			<button data-test-id="toast-button" onClick={handleToast}>
+				Toast
+			</button>
 			<ToastContainer {...args} />
 		</>
 	);
@@ -64,7 +66,7 @@ ToastContainerStory.argTypes = {
 	},
 	textColor: {
 		name: 'Text color',
-		options: ['black', 'white'],
+		options: ['black', 'white', 'yellow', 'green'],
 		control: 'radio',
 	},
 };

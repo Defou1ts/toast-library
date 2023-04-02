@@ -24,7 +24,11 @@ export const ToastRoot = ({ position, margins, ...toastContainerConfig }: ToastC
 	return (
 		<ToastPortal>
 			{toasts.length > 0 && (
-				<ToastContainerWrapper position={getPosition(position)} margins={margins}>
+				<ToastContainerWrapper
+					data-test-id="toast-container-wrapper"
+					position={getPosition(position)}
+					margins={margins}
+				>
 					{toasts.slice(0, 3).map(({ id, toastConfig }) => (
 						<Toast
 							position={position}

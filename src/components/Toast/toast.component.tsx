@@ -16,6 +16,7 @@ export const Toast = ({ config, remove, position }: ToastProps): JSX.Element => 
 
 	return (
 		<ToastWrapper
+			data-test-id="toast-wrapper"
 			animationType={animation}
 			animation={getAnimationParams(position)}
 			position={getPosition(position)}
@@ -24,9 +25,9 @@ export const Toast = ({ config, remove, position }: ToastProps): JSX.Element => 
 		>
 			<CloseButton color={color ?? defaultColor} onClose={remove} />
 			<ToastContentWrapper>
-				<Icon fill={color ?? defaultColor} />
-				<ToastTitle>{title}</ToastTitle>
-				<ToastText>{message}</ToastText>
+				<Icon data-test-id="toast-icon" fill={color ?? defaultColor} />
+				<ToastTitle data-test-id="toast-title">{title}</ToastTitle>
+				<ToastText data-test-id="toast-text">{message}</ToastText>
 			</ToastContentWrapper>
 		</ToastWrapper>
 	);
