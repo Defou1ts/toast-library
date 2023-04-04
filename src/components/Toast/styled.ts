@@ -60,6 +60,8 @@ export const ToastContentWrapper = styled.div`
 		'icon text';
 
 	& svg {
+		grid-area: icon;
+		align-self: center;
 		width: ${({ theme }) => theme.width[1]}px;
 		height: ${({ theme }) => theme.width[1]}px;
 		fill: ${({ color }) => color};
