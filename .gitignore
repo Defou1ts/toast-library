@@ -10,6 +10,7 @@ cypress/screenshots
 cypress/videos
 cypress/report
 /coverage
+/storybook-static
 
 # production
 /build
