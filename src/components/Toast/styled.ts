@@ -54,7 +54,7 @@ export const ToastContentWrapper = styled.div`
 	display: grid;
 	gap: 0px ${({ theme }) => theme.gaps[0]}px;
 	grid-template-columns: ${({ theme }) => theme.width[1]}px auto;
-	grid-template-rows: auto auto;
+	grid-template-rows: auto 1fr;
 	grid-template-areas:
 		'icon title'
 		'icon text';
@@ -81,6 +81,9 @@ export const ToastTitle = styled.p`
 	font-size: ${({ theme }) => theme.fontSize[1]}px;
 	grid-area: title;
 
+	overflow: hidden;
+	text-overflow: ellipsis;
+
 	@media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		font-size: ${({ theme }) => theme.fontSize[0]}px;
 	}
@@ -89,6 +92,9 @@ export const ToastTitle = styled.p`
 export const ToastText = styled.p`
 	font-size: ${({ theme }) => theme.fontSize[0]}px;
 	grid-area: text;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
 
 	@media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}px) {
 		font-size: ${({ theme }) => theme.fontSize[2]}px;
