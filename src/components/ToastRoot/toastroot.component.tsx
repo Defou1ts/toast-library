@@ -29,7 +29,7 @@ export const ToastRoot = ({ position, margins, ...toastContainerConfig }: ToastC
 					position={getPosition(position)}
 					margins={margins}
 				>
-					{toasts.slice(0, 3).map(({ id, toastConfig }) => (
+					{toasts.map(({ id, toastConfig }) => (
 						<Toast
 							position={position}
 							remove={handleRemoveToast(id)}

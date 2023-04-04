@@ -21,5 +21,5 @@ export const useToastServiceSubscribe = (): ToastNotification[] => {
 		};
 	}, []);
 
-	return toasts;
+	return toasts.slice(0, 3);
 };
