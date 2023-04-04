@@ -46,6 +46,7 @@
 		"@types/uuid": "^9.0.1",
 		"@typescript-eslint/eslint-plugin": "^5.0.0",
 		"babel-loader": "^8.3.0",
+		"chromatic": "^6.17.2",
 		"cypress": "^12.7.0",
 		"eslint": "^8.0.1",
 		"eslint-config-prettier": "^8.6.0",
@@ -81,6 +82,10 @@
 		"storybook": "start-storybook -p 6006",
 		"build-lib": "rollup -c",
 		"prepare": "husky install",
-		"cypress": "cypress run"
-	}
+		"cypress": "cypress run",
+		"build-storybook": "build-storybook",
+		"chromatic": "npx chromatic --project-token=1acbf51dc48f"
+	},
+	"readme": "ERROR: No README data found!",
+	"_id": "react-toasting@1.0.4"
 }
